@@ -1,0 +1,23 @@
+{
+  "appearance": {
+    "iconSize": 42,
+    "padding": 14,
+    "gap": 12,
+    "margin": 12,
+    "tint": "#99000000"
+  },
+  "modules": [
+    {
+      "type": "launcher",
+      "items": [
+        { "name": "记事本", "path": "C:\\Windows\\System32\\notepad.exe" },
+        { "name": "画图", "path": "C:\\Windows\\System32\\mspaint.exe" },
+        { "name": "文件资源管理器", "path": "C:\\Windows\\explorer.exe" },
+        { "name": "Edge", "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" },
+        { "name": "计算器", "path": "calc.exe" }
+      ]
+    },
+    { "type": "separator" },
+    { "type": "clock", "format": "HH:mm:ss" }
+  ]
+}
