@@ -25,7 +25,7 @@ jobs:
           for /f "usebackq tokens=*" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do set "VSINSTALL=%%i"
           if not defined VSINSTALL (echo "MSVC not found" & exit /b 1)
           call "%VSINSTALL%\VC\Auxiliary\Build\vcvars64.bat"
-          cl /nologo /std:c++17 /O2 /DUNICODE /D_UNICODE src\main.cpp /Fe:FrostDock.exe /link user32.lib gdi32.lib shell32.lib dwmapi.lib /SUBSYSTEM:WINDOWS /ENTRY:wWinMainCRTStartup
+          cl /nologo /std:c++17 /O2 /EHsc src\main.cpp /Fe:FrostDock.exe /link user32.lib gdi32.lib shell32.lib dwmapi.lib /SUBSYSTEM:WINDOWS /ENTRY:wWinMainCRTStartup
           dir FrostDock.exe
 
       - name: Prepare colorful background

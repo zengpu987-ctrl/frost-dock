@@ -113,6 +113,12 @@ static std::wstring utf8ToWide(const std::string& text) {
     return out;
 }
 
+static std::wstring pad2(int value) {
+    std::wstring s = std::to_wstring(value);
+    if (s.size() < 2) s = std::wstring(L"0") + s;
+    return s;
+}
+
 static std::string readFile(const std::wstring& path) {
     std::ifstream in(path, std::ios::binary);
     if (!in) return "";
@@ -256,11 +262,9 @@ static void paint(Dock& dock, HDC hdc) {
         } else if (cell.type == CellType::Clock) {
             SYSTEMTIME st;
             GetLocalTime(&st);
-            std::wstring text =
-                std::to_wstring(st.wHour) + L":" +
-                (st.wMinute < 10 ? L"0" : L"") + std::to_wstring(st.wMinute);
+            std::wstring text = pad2(st.wHour) + L":" + pad2(st.wMinute);
             if (dock.showSeconds) {
-                text += L":" + (st.wSecond < 10 ? L"0" : L"") + std::to_wstring(st.wSecond);
+                text += L":" + pad2(st.wSecond);
             }
             SetTextColor(hdc, RGB(255, 255, 255));
             SetBkMode(hdc, TRANSPARENT);

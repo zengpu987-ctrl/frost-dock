@@ -35,7 +35,7 @@ build.bat
 #### 方式 B：MinGW-w64
 
 ```sh
-x86_64-w64-mingw32-g++ -std=c++17 -O2 -municode -mwindows \
+x86_64-w64-mingw32-g++ -std=c++17 -O2 -fexceptions -municode -mwindows \
   src/main.cpp -o FrostDock.exe \
   -ldwmapi -lshell32 -lgdi32 -luser32
 ```
@@ -43,7 +43,7 @@ x86_64-w64-mingw32-g++ -std=c++17 -O2 -municode -mwindows \
 #### 方式 C：Zig（可跨平台编译 Windows exe）
 
 ```sh
-zig c++ -std=c++17 -O2 -target x86_64-windows-gnu \
+zig c++ -std=c++17 -O2 -fexceptions -target x86_64-windows-gnu \
   src/main.cpp -o FrostDock.exe \
   -ldwmapi -lshell32 -lgdi32 -luser32 \
   -Wl,--subsystem,windows
@@ -137,7 +137,7 @@ build.bat
 #### MinGW-w64
 
 ```sh
-x86_64-w64-mingw32-g++ -std=c++17 -O2 -municode -mwindows \
+x86_64-w64-mingw32-g++ -std=c++17 -O2 -fexceptions -municode -mwindows \
   src/main.cpp -o FrostDock.exe \
   -ldwmapi -lshell32 -lgdi32 -luser32
 ```
@@ -145,7 +145,7 @@ x86_64-w64-mingw32-g++ -std=c++17 -O2 -municode -mwindows \
 #### Zig (cross-compile a Windows exe)
 
 ```sh
-zig c++ -std=c++17 -O2 -target x86_64-windows-gnu \
+zig c++ -std=c++17 -O2 -fexceptions -target x86_64-windows-gnu \
   src/main.cpp -o FrostDock.exe \
   -ldwmapi -lshell32 -lgdi32 -luser32 \
   -Wl,--subsystem,windows
